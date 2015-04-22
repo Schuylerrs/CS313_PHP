@@ -15,8 +15,12 @@
 			{
 				var text = document.getElementById("textInput").value;
 				var color = document.getElementById("colorInput").value;
-				appendText(text);
-				updateColor(color);
+	
+				if (confirm("Are you sure you want to update?") == true)
+				{
+					appendText(text);
+					updateColor(color);
+				}
 			}
 
 			function appendText(text)
