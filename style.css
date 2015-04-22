@@ -1,0 +1,12 @@
+div.inputs {
+	background-color: white; 
+	margin-top: 15px;
+	padding: 10px;
+	padding-bottom:5px;
+}
+
+div.display {
+	background-color:#CCCCFF; 
+	width: 400px;
+	display: block;
+}
