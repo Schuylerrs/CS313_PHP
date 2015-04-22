@@ -28,11 +28,12 @@ function handleUpdateClick()
 function appendText(text)
 {	
 	var e = $("#displayedText");
-	e.innerHTML();
+	text = e.text() + text;
+	e.text(text);
 }
 
 function updateColor(color)
 {
-//	var e = $("#displayedText");
-//	e.style.backgroundColor = color;	
+	var e = $("#displayedText");
+	e.css("background-color", color);	
 }
