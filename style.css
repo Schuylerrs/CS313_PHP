@@ -10,3 +10,18 @@ div.display {
 	width: 400px;
 	display: block;
 }
+
+div.jumbotron {
+	padding-left: 2cm;	
+}
+
+div.update {
+	padding-left: 2cm;
+	width:80%;
+	margin-left: 2cm;
+	border-width: 2px;
+}
+
+div.update h1 {
+	font-size: 300%;
+}
