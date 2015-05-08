@@ -8,105 +8,107 @@
   {
     $_COOKIE["voted"] = true;
   }
-
-  if (filesize("q1.txt") == 0)
+  else
   {
-    $file = fopen("q1.txt", "w");
-    $data = array(
-      "Mango" => 0,
-      "Apple" => 0,
-      "Watermellon" => 0,
-      "Orange" => 0,
-      "Banana" => 0,
-      "Rambutan" => 0);
-    $serial = serialize($data);
-    fwrite($file, $serial);
-    fclose($file);
-  }
+    if (filesize("q1.txt") == 0)
+    {
+      $file = fopen("q1.txt", "w");
+      $data = array(
+        "Mango" => 0,
+        "Apple" => 0,
+        "Watermellon" => 0,
+        "Orange" => 0,
+        "Banana" => 0,
+        "Rambutan" => 0);
+      $serial = serialize($data);
+      fwrite($file, $serial);
+      fclose($file);
+    }
 
-  if(isset($_GET["fruit"]))
-  {
-    $raw = file_get_contents("q1.txt");
-    $data = unserialize($raw);
-    $data[$_GET["fruit"]]++;
-    $serial = serialize($data);
-    $file = fopen("q1.txt", "w");
-    fwrite($file, $serial);
-    fclose($file);
-  }
+    if(isset($_GET["fruit"]))
+    {
+      $raw = file_get_contents("q1.txt");
+      $data = unserialize($raw);
+      $data[$_GET["fruit"]]++;
+      $serial = serialize($data);
+      $file = fopen("q1.txt", "w");
+      fwrite($file, $serial);
+      fclose($file);
+    }
 
-  if (filesize("q2.txt") == 0)
-  {
-    $file = fopen("q2.txt", "w");
-    $data = array(
-      "42" => 0,
-      "Violence" => 0,
-      "Love" => 0,
-      "Google" => 0,
-      "God" => 0);
-    $serial = serialize($data);
-    fwrite($file, $serial);
-    fclose($file);
-  }
+    if (filesize("q2.txt") == 0)
+    {
+      $file = fopen("q2.txt", "w");
+      $data = array(
+        "42" => 0,
+        "Violence" => 0,
+        "Love" => 0,
+        "Google" => 0,
+        "God" => 0);
+      $serial = serialize($data);
+      fwrite($file, $serial);
+      fclose($file);
+    }
 
-  if(isset($_GET["answer"]))
-  {
-    $raw = file_get_contents("q2.txt");
-    $data = unserialize($raw);
-    $data[$_GET["answer"]]++;
-    $serial = serialize($data);
-    $file = fopen("q2.txt", "w");
-    fwrite($file, $serial);
-    fclose($file);
-  }
+    if(isset($_GET["answer"]))
+    {
+      $raw = file_get_contents("q2.txt");
+      $data = unserialize($raw);
+      $data[$_GET["answer"]]++;
+      $serial = serialize($data);
+      $file = fopen("q2.txt", "w");
+      fwrite($file, $serial);
+      fclose($file);
+    }
 
-  if (filesize("q3.txt") == 0)
-  {
-    $file = fopen("q3.txt", "w");
-    $data = array(
-      "24 mph" => 0,
-      "11 meters/sec" => 0,
-      "I don't know that" => 0,
-      "42" => 0,
-      "African or European" => 0);
-    $serial = serialize($data);
-    fwrite($file, $serial);
-    fclose($file);
-  }
+    if (filesize("q3.txt") == 0)
+    {
+      $file = fopen("q3.txt", "w");
+      $data = array(
+        "24 mph" => 0,
+        "11 meters/sec" => 0,
+        "I don't know that" => 0,
+        "42" => 0,
+        "African or European" => 0);
+      $serial = serialize($data);
+      fwrite($file, $serial);
+      fclose($file);
+    }
 
-  if(isset($_GET["speed"]))
-  {
-    $raw = file_get_contents("q3.txt");
-    $data = unserialize($raw);
-    $data[$_GET["speed"]]++;
-    $serial = serialize($data);
-    $file = fopen("q3.txt", "w");
-    fwrite($file, $serial);
-    fclose($file);
-  }
+    if(isset($_GET["speed"]))
+    {
+      $raw = file_get_contents("q3.txt");
+      $data = unserialize($raw);
+      $data[$_GET["speed"]]++;
+      $serial = serialize($data);
+      $file = fopen("q3.txt", "w");
+      fwrite($file, $serial);
+      fclose($file);
+    }
 
-  if (filesize("q4.txt") == 0)
-  {
-    $file = fopen("q4.txt", "w");
-    $data = array(
-      "Windows" => 0,
-      "Linux" => 0,
-      "Mac" => 0,
-      "Other" => 0);
-    $serial = serialize($data);
-    fwrite($file, $serial);
-    fclose($file);
-  }
+    if (filesize("q4.txt") == 0)
+    {
+      $file = fopen("q4.txt", "w");
+      $data = array(
+        "Windows" => 0,
+        "Linux" => 0,
+        "Mac" => 0,
+        "Other" => 0);
+      $serial = serialize($data);
+      fwrite($file, $serial);
+      fclose($file);
+    }
 
-  if(isset($_GET["OS"]))
-  {
-    $raw = file_get_contents("q4.txt");
-    $data = unserialize($raw);
-    $data[$_GET["OS"]]++;
-    $serial = serialize($data);
-    $file = fopen("q4.txt", "w");
-    fwrite($file, $serial);
-    fclose($file);
+    if(isset($_GET["OS"]))
+    {
+      $raw = file_get_contents("q4.txt");
+      $data = unserialize($raw);
+      $data[$_GET["OS"]]++;
+      $serial = serialize($data);
+      $file = fopen("q4.txt", "w");
+      fwrite($file, $serial);
+      fclose($file);
+    } 
   }
 
 ?>
