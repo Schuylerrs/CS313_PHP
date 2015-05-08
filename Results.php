@@ -4,7 +4,7 @@
     setcookie("voted", "false", time() + 60 * 60 * 24);
   }
   
-  if($_COOKIE["voted"] == true)
+  if($_COOKIE["voted"] == false)
   {
     if (filesize("q1.txt") == 0)
     {
