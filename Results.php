@@ -3,12 +3,8 @@
   {
     setcookie("voted", "false", time() + 60 * 60 * 24);
   }
-
-  if(isset($_GET["fruit"]) || isset($_GET["answer"]) || isset($_GET["speed"]) || isset($_GET["OS"]))
-  {
-    $_COOKIE["voted"] = true;
-  }
-  else
+  
+  if($_COOKIE["voted"] == true)
   {
     if (filesize("q1.txt") == 0)
     {
@@ -68,8 +64,7 @@
         "24 mph" => 0,
         "11 meters/sec" => 0,
         "I don't know that" => 0,
-        "42" => 0,
-        "African or European" => 0);
+        "42" => 0);
       $serial = serialize($data);
       fwrite($file, $serial);
       fclose($file);
@@ -111,6 +106,10 @@
     } 
   }
 
+  if(isset($_GET["fruit"]) || isset($_GET["answer"]) || isset($_GET["speed"]) || isset($_GET["OS"]))
+  {
+    $_COOKIE["voted"] = true;
+  }
 ?>
 
 <!DOCTYPE html>

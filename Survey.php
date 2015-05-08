@@ -75,7 +75,6 @@
 		      <h2>Question 3: What is the airspeed velocity of an unladen swallow?</h2>
   		      <p><input type="radio" name="speed" value="24 mph"> 24 mph</p>
   		      <p><input type="radio" name="speed" value="11 m/sec"> 11 m/sec</p>
-  		      <p><input type="radio" name="speed" value="I don't know that"> I don't know that</p>
 		      <p><input type="radio" name="speed" value="42"> 42</p>
 		      <p><input type="radio" name="speed" value="African or European?"> African or European?</p>		      
 		    </div>
