@@ -10,12 +10,14 @@
     {
       $file = fopen("q1.txt", "w");
       $data = array(
-        "Mango" => 0,
-        "Apple" => 0,
+        "Mango" => 2,
+        "Apple" => 1,
         "Watermellon" => 0,
         "Orange" => 0,
         "Banana" => 0,
-        "Rambutan" => 0);
+        "Strawberry" => 0,
+        "Grapes" => 0,
+        "Rambutan" => 2);
       $serial = serialize($data);
       fwrite($file, $serial);
       fclose($file);
@@ -36,11 +38,11 @@
     {
       $file = fopen("q2.txt", "w");
       $data = array(
-        "42" => 0,
+        "42" => 3,
         "Violence" => 0,
         "Love" => 0,
-        "Google" => 0,
-        "God" => 0);
+        "Google" => 1,
+        "God" => 1);
       $serial = serialize($data);
       fwrite($file, $serial);
       fclose($file);
@@ -61,9 +63,9 @@
     {
       $file = fopen("q3.txt", "w");
       $data = array(
-        "24 mph" => 0,
-        "11 meters/sec" => 0,
-        "African or European?" => 0,
+        "24 mph" => 1,
+        "11 meters/sec" => 1,
+        "African or European?" => 3,
         "42" => 0);
       $serial = serialize($data);
       fwrite($file, $serial);
@@ -85,9 +87,9 @@
     {
       $file = fopen("q4.txt", "w");
       $data = array(
-        "Windows" => 0,
-        "Linux" => 0,
-        "Mac" => 0,
+        "Windows" => 3,
+        "Linux" => 1,
+        "Mac" => 1,
         "Other" => 0);
       $serial = serialize($data);
       fwrite($file, $serial);
@@ -115,7 +117,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PHP test</title>
+    <title>Survey Results</title>
     <link rel="stylesheet" href="style.css">
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -192,8 +194,7 @@
             animationEnabled: false,   // change to true
             data: [              
               {
-                // Change type to "bar", "splineArea", "area", "spline", "pie",etc.
-                type: "column",
+                type: "bar",
                 dataPoints: [
                   <?php
                     $read = file_get_contents("q3.txt");
@@ -267,7 +268,7 @@
 
     <div class="jumbotron update">
       <h2>Question 1: What is your favorite fruit?</h2>
-      <div id="chartContainer" style="height: 400px; width: 50%;">There should be stuff here</div>
+      <div id="chartContainer" style="height: 400px; width: 50%; border-style: solid; border-width: 3px; border-color: black">There should be stuff here</div>
     </div>
     
     <div class="jumbotron update">

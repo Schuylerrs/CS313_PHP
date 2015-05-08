@@ -59,6 +59,9 @@
   		      <p><input type="radio" name="fruit" value="Apple"> Apple</p>
   		      <p><input type="radio" name="fruit" value="Watermellon"> Watermellon</p>
 		      <p><input type="radio" name="fruit" value="Orange"> Orange</p>
+		      <p><input type="radio" name="fruit" value="Banana"> Banana</p>
+  		      <p><input type="radio" name="fruit" value="Strawberry"> Strawberry</p>
+  		      <p><input type="radio" name="fruit" value="Grapes"> Grapes</p>
 		      <p><input type="radio" name="fruit" value="Rambutan"> Rambutan</p>
 		    </div>
 		    
