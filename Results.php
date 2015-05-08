@@ -1,8 +1,7 @@
 <?php
-  $file = fopen("q1.txt", "w");
-  if (0 == filesize("q1.txt"))
+  if (filesize("q1.txt") == 0)
   {
-    echo "Initializin";
+    $file = fopen("q1.txt", "w");
     $data = array(
       "Mango" => 0,
       "Apple" => 0,
@@ -12,17 +11,12 @@
       "Rambutan" => 0);
     $serial = serialize($data);
     fwrite($file, $serial);
+    fclose($file);
   }
-  else
-  {
-    echo "file opened fine";
-  }
-  fclose($file);
-
-  $file = fopen("q2.txt", "w");
 
   if (filesize("q2.txt") == 0)
   {
+    $file = fopen("q2.txt", "w");
     $data = array(
       "42" => 0,
       "Violence" => 0,
@@ -31,15 +25,13 @@
       "God" => 0);
     $serial = serialize($data);
     fwrite($file, $serial);
+    fclose($file);
   }
-  else
-  {
-  }
-  fclose($file);
 
-  $file = fopen("q3.txt", "w");
+
   if (filesize("q3.txt") == 0)
   {
+    $file = fopen("q3.txt", "w");
     $data = array(
       "24 mph" => 0,
       "11 meters/sec" => 0,
@@ -48,15 +40,13 @@
       "42" => 0);
     $serial = serialize($data);
     fwrite($file, $serial);
+    fclose($file);
   }
-  else
-  {
-  }
-  fclose($file);
 
-  $file = fopen("q4.txt", "w");
+
   if (filesize("q4.txt") == 0)
   {
+    $file = fopen("q4.txt", "w");
     $data = array(
       "Windows" => 0,
       "Linux" => 0,
@@ -64,11 +54,9 @@
       "Other" => 0);
     $serial = serialize($data);
     fwrite($file, $serial);
+    fclose($file);
   }
-  else
-  {
-  }
-  fclose($file);
+
 ?>
 
 <!DOCTYPE html>
