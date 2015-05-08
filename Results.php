@@ -36,8 +36,8 @@
       "24 mph" => 0,
       "11 meters/sec" => 0,
       "I don't know that" => 0,
-      "African or European" => 0,
-      "42" => 0);
+      "42" => 0,
+      "African or European" => 0);
     $serial = serialize($data);
     fwrite($file, $serial);
     fclose($file);
