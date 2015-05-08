@@ -135,9 +135,12 @@
         window.onload = function () 
         {
           var chart1 = new CanvasJS.Chart("chartContainer", {
-            theme: "theme2",//theme1
+            theme: "theme1",//theme1
             title:{
               text: ""              
+            },
+            axisY:{
+              interval: 1
             },
             animationEnabled: false,   // change to true
             data: [              
@@ -161,9 +164,12 @@
           chart1.render();
 
           var chart2 = new CanvasJS.Chart("chartQ2", {
-            theme: "theme2",//theme1
+            theme: "theme1",//theme1
             title:{
               text: ""              
+            },
+            axisY:{
+              interval: 1
             },
             animationEnabled: false,   // change to true
             data: [              
@@ -187,9 +193,12 @@
           chart2.render();
                     
           var chart3 = new CanvasJS.Chart("chartQ3", {
-            theme: "theme2",//theme1
+            theme: "theme1",//theme1
             title:{
               text: ""              
+            },
+            axisY:{
+              interval: 1
             },
             animationEnabled: false,   // change to true
             data: [              
@@ -211,9 +220,12 @@
           chart3.render();
 
           var chart4 = new CanvasJS.Chart("chartQ4", {
-            theme: "theme2",//theme1
+            theme: "theme1",
             title:{
               text: ""              
+            },
+            axisY:{
+              interval: 1
             },
             animationEnabled: false,   // change to true
             data: [              
