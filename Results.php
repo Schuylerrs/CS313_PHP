@@ -268,22 +268,22 @@
 
     <div class="jumbotron update">
       <h2>Question 1: What is your favorite fruit?</h2>
-      <div id="chartContainer" style="height: 400px; width: 50%; border-style: solid; border-width: 3px; border-color: black">There should be stuff here</div>
+      <div id="chartContainer" style="height: 500px; width: 60%;">There should be stuff here</div>
     </div>
     
     <div class="jumbotron update">
       <h2>Question 2: What is the answer?</h2>
-      <div id="chartQ2" style="height: 400px; width: 50%;">There should be stuff here</div>
+      <div id="chartQ2" style="height: 500px; width: 60%;">There should be stuff here</div>
     </div>
 
     <div class="jumbotron update">
       <h2>Question 3: What is the airspeed velocity of an unladen swallow?</h2>
-      <div id="chartQ3" style="height: 400px; width: 50%;">There should be stuff here</div>
+      <div id="chartQ3" style="height: 500px; width: 60%;">There should be stuff here</div>
     </div>
 
     <div class="jumbotron update">
       <h2>Question 4: Which OS is the best?</h2>
-      <div id="chartQ4" style="height: 400px; width: 50%;">There should be stuff here</div>
+      <div id="chartQ4" style="height: 500px; width: 60%;">There should be stuff here</div>
     </div>
 
 
