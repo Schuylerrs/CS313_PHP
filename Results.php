@@ -1,4 +1,16 @@
 <?php
+  if(isset($_COOKIE["voted"]) == false)
+  {
+    echo "Just made a session for you<br>";
+    setcookie("voted", "false", time() + 60 * 60 * 24);
+  }
+
+  if(isset($_GET["fruit"]) || isset($_GET["answer"]) || isset($_GET["speed"]) || isset($_GET["OS"]))
+  {
+    echo "You have now voted.";
+    $_COOKIE["voted"] = true;
+  }
+
   if (filesize("q1.txt") == 0)
   {
     $file = fopen("q1.txt", "w");
@@ -10,6 +22,17 @@
       "Banana" => 0,
       "Rambutan" => 0);
     $serial = serialize($data);
+    fwrite($file, $serial);
+    fclose($file);
+  }
+
+  if(isset($_GET["fruit"]))
+  {
+    $raw = file_get_contents("q1.txt");
+    $data = unserialize($raw);
+    $data[$_GET["fruit"]]++;
+    $serial = serialize($data);
+    $file = fopen("q1.txt", "w");
     fwrite($file, $serial);
     fclose($file);
   }
@@ -28,6 +51,16 @@
     fclose($file);
   }
 
+  if(isset($_GET["answer"]))
+  {
+    $raw = file_get_contents("q2.txt");
+    $data = unserialize($raw);
+    $data[$_GET["answer"]]++;
+    $serial = serialize($data);
+    $file = fopen("q2.txt", "w");
+    fwrite($file, $serial);
+    fclose($file);
+  }
 
   if (filesize("q3.txt") == 0)
   {
@@ -43,6 +76,16 @@
     fclose($file);
   }
 
+  if(isset($_GET["speed"]))
+  {
+    $raw = file_get_contents("q3.txt");
+    $data = unserialize($raw);
+    $data[$_GET["speed"]]++;
+    $serial = serialize($data);
+    $file = fopen("q3.txt", "w");
+    fwrite($file, $serial);
+    fclose($file);
+  }
 
   if (filesize("q4.txt") == 0)
   {
@@ -53,6 +96,17 @@
       "Mac" => 0,
       "Other" => 0);
     $serial = serialize($data);
+    fwrite($file, $serial);
+    fclose($file);
+  }
+
+  if(isset($_GET["OS"]))
+  {
+    $raw = file_get_contents("q4.txt");
+    $data = unserialize($raw);
+    $data[$_GET["OS"]]++;
+    $serial = serialize($data);
+    $file = fopen("q4.txt", "w");
     fwrite($file, $serial);
     fclose($file);
   }
