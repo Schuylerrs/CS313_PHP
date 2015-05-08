@@ -1,13 +1,11 @@
 <?php
   if(isset($_COOKIE["voted"]) == false)
   {
-    echo "Just made a session for you<br>";
     setcookie("voted", "false", time() + 60 * 60 * 24);
   }
 
   if(isset($_GET["fruit"]) || isset($_GET["answer"]) || isset($_GET["speed"]) || isset($_GET["OS"]))
   {
-    echo "You have now voted.";
     $_COOKIE["voted"] = true;
   }
 
