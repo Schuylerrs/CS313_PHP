@@ -1,0 +1,1 @@
+a:4:{s:6:"24 mph";i:1;s:13:"11 meters/sec";i:1;s:20:"African or European?";i:3;i:42;i:0;}

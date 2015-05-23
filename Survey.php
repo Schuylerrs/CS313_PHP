@@ -24,31 +24,17 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<link rel="shortcut icon" href="http://php-schuylerrs.rhcloud.com/favicon.ico">
+		<script>
+			function onLoad()
+			{
+				var nav = document.getElementById("navSurvey");
+				nav.className = "active";
+			}
+		</script>
+		<link rel="shortcut icon" href="http://php-schuylerrs.rhcloud.com/favicon.ico">
 	</head>
-	<body>
-		<nav class="navbar navbar-inverse">
-		  <div class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		      <a class="navbar-brand" href="http://php-schuylerrs.rhcloud.com/">Schuyler's CS313</a>
-		    </div>
-
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <ul class="nav navbar-nav">
-		        <li><a href="http://php-schuylerrs.rhcloud.com/"> Home </a></li>
-		        <li ><a href="http://php-schuylerrs.rhcloud.com/Assignments.html">Assignments</a></li>
-		        <li class="active"><a href="http://php-schuylerrs.rhcloud.com/Survey.php"> Survey <span class="sr-only">(current)</span></a></li>
-		      </ul>
-		    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
-		</nav>
+	<body onload="onLoad();">
+		<?php include("nav.html"); ?>
 		<div class="jumbotron">
 			<h1>Survey!</h1>
 		</div>
@@ -62,7 +48,7 @@
 		      <p><input type="radio" name="fruit" value="Banana"> Banana</p>
   		      <p><input type="radio" name="fruit" value="Strawberry"> Strawberry</p>
   		      <p><input type="radio" name="fruit" value="Grapes"> Grapes</p>
-		      <p><input type="radio" name="fruit" value="Rambutan"> Rambutan</p>
+		      <p><input type="radio" name="fruit" value="Rambutan"><a href="http://en.wikipedia.org/wiki/Rambutan"> Rambutan</a></p>
 		    </div>
 		    
 		    <div class="jumbotron update">

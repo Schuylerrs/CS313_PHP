@@ -1,0 +1,1 @@
+a:8:{s:5:"Mango";i:2;s:5:"Apple";i:1;s:11:"Watermellon";i:0;s:6:"Orange";i:0;s:6:"Banana";i:0;s:10:"Strawberry";i:0;s:6:"Grapes";i:0;s:8:"Rambutan";i:2;}
