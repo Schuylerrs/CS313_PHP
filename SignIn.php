@@ -20,7 +20,7 @@
 	</head>
 	<body>
 		<?php include("nav.html"); ?>
-		<form action="signingin.php" method="post">
+		<form action="signingIn.php" method="post">
 			<div class="jumbotron update">
 				<h1>Sign In</h1>
 				<?php 
