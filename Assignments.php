@@ -56,7 +56,7 @@
 	          echo "function updateSignInName()
 	          {
 	            var nav = document.getElementById(\"navSignIn\");
-	            nav.innerHTML = \"Signed In As: " . $_SESSION['displayName'] . "\";         
+	            nav.innerHTML = \"Signed In As: " . $_SESSION['displayName'] . " <a href='signout.php'>Sign Out </a>\";         
 	          }";
 	        }
 	      ?>
@@ -67,6 +67,20 @@
 		<?php include("nav.html"); ?>
 		<div class="jumbotron">
 			<h1>Assignments</h1>
+		</div>
+
+		<div class="jumbotron update">
+			<h1>Daily Health</h1>
+			<p>5/30/2015 </p>
+			<p> I have added the ability to create a user and to Input data into the database <br/></p>
+			<p><a class="btn btn-primary btn-lg" href="DailyHealth.php" role="button">Daily Health</a></p>
+		</div>
+
+		<div class="jumbotron update">
+			<h1>Daily Health</h1>
+			<p>5/23/2015 </p>
+			<p> I have added the inital Daily Health Page as well as a login <br/></p>
+			<p><a class="btn btn-primary btn-lg" href="DailyHealth.php" role="button">Daily Health</a></p>
 		</div>
 
 		<div class="jumbotron update">

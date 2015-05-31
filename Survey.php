@@ -7,6 +7,8 @@
 			exit();
 		}
 	}
+
+	session_start();
 ?>
 <html>
 	<head>
@@ -29,7 +31,24 @@
 			{
 				var nav = document.getElementById("navSurvey");
 				nav.className = "active";
-			}
+				    	    <?php
+		            if (isset($_SESSION['id']))
+		            {
+		              echo "updateSignInName();";           
+		            }
+	          	?>
+	        }
+
+	      <?php
+	        if (isset($_SESSION['id']))
+	        {
+	          echo "function updateSignInName()
+	          {
+	            var nav = document.getElementById(\"navSignIn\");
+	            nav.innerHTML = \"Signed In As: " . $_SESSION['displayName'] . " <a href='signout.php'>Sign Out </a>\";         
+	          }";
+	        }
+	      ?>
 		</script>
 		<link rel="shortcut icon" href="http://php-schuylerrs.rhcloud.com/favicon.ico">
 	</head>

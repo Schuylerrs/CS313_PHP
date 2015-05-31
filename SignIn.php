@@ -1,5 +1,9 @@
 <?php
     session_start();
+    if (!isset($_SESSION['FailedLogin']))
+    {
+    	$_SESSION['FailedLogin'] = 0;
+    }
 ?>
 <html>
 	<head>
@@ -52,7 +56,7 @@
 	  			</table>
 	  			<br/>
 	  			<button type="Submit"> Sign In </button>
-	  			<button type="button"> New User </button>
+	  			<button type="button" onclick="window.location.href='newUser.php'"> New User </button>
 			</div>
 		</form>
 	</body>

@@ -1,56 +1,56 @@
-
 <?php
 	header('Content-Type: text/html; charset=UTF-8');
 	session_start();
 	if (session_status() == PHP_SESSION_NONE) 
 	{
 		session_name('sid');
-	    session_start();
-	    $_SESSION['FailedLogin'] = 0;
-	    echo "new session <br/>";
+    session_start();
+    $_SESSION['FailedLogin'] = 0;
+    echo "new session <br/>";
 	}
 
 	$username = $_POST['Username'];
 	$password = $_POST['Password'];
 	echo $username . "<br/>";
 	echo $password . "<br/>";
-    function loadDatabase()
+    
+  function loadDatabase()
+  {
+
+    $dbHost = "";
+    $dbPort = "";
+    $dbUser = "";
+    $dbPassword = "";
+    $db = null;
+    $dbName = "dailyhealth";
+
+    $openShiftVar = getenv('OPENSHIFT_MYSQL_DB_HOST');
+
+    if ($openShiftVar === null || $openShiftVar == "")
     {
+      // Not in the openshift environment
+      echo "Using local credentials: "; 
+    	$dbUser = "php";
+    	$dbPassword = "php-pass";
 
-      $dbHost = "";
-      $dbPort = "";
-      $dbUser = "";
-      $dbPassword = "";
-      $db = null;
-      $dbName = "dailyhealth";
-
-      $openShiftVar = getenv('OPENSHIFT_MYSQL_DB_HOST');
-
-      if ($openShiftVar === null || $openShiftVar == "")
-      {
-        // Not in the openshift environment
-        echo "Using local credentials: "; 
-      	$dbUser = "php";
-      	$dbPassword = "php-pass";
-
-  	    $db = new PDO("mysql:host=127.0.0.1;dbname=dailyhealth", $dbUser, $dbPassword);
-      }
-      else 
-      { 
-        // In the openshift environment
-        echo "Using openshift credentials: ";
-
-        $dbHost = getenv('OPENSHIFT_MYSQL_DB_HOST');
-        $dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT'); 
-        $dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
-        $dbPassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
-
-        $db = new PDO("mysql:host=$dbHost:$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-      } 
-      //echo "host:$dbHost:$dbPort dbName:$dbName user:$dbUser password:$dbPassword<br >\n";
-
-      return $db;
+	    $db = new PDO("mysql:host=127.0.0.1;dbname=dailyhealth", $dbUser, $dbPassword);
     }
+    else 
+    { 
+      // In the openshift environment
+      echo "Using openshift credentials: ";
+
+      $dbHost = getenv('OPENSHIFT_MYSQL_DB_HOST');
+      $dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT'); 
+      $dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
+      $dbPassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
+
+      $db = new PDO("mysql:host=$dbHost:$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+    } 
+    //echo "host:$dbHost:$dbPort dbName:$dbName user:$dbUser password:$dbPassword<br >\n";
+
+    return $db;
+  }
 
     $db = loadDatabase();
 
@@ -75,6 +75,6 @@
 
 	$_SESSION['FailedLogin'] += 1;
 	echo "Failed Logins: " . $_SESSION['FailedLogin'];
-	header('Location: ' . $_SERVER['HTTP_REFERER']);
-	exit();
+	//header('Location: ' . $_SERVER['HTTP_REFERER']);
+	//exit();
 ?>

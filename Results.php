@@ -270,7 +270,7 @@
           echo "function updateSignInName()
           {
             var nav = document.getElementById(\"navSignIn\");
-            nav.innerHTML = \"Signed In As: " . $_SESSION['displayName'] . "\";         
+            nav.innerHTML = \"Signed In As: " . $_SESSION['displayName'] . " <a href='signout.php'>Sign Out </a>\";         
           }";
         }
       ?>
