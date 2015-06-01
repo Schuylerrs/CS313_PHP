@@ -73,7 +73,7 @@
 				    {
 				        title: "Date",
 				        valueFormatString: "MMM DD",
-				        gridThickness: 2
+				        interval: 4
 				    },
 				    axisY: 
 				    {
@@ -88,12 +88,14 @@
 				        legendText: "Sleep",
 				        dataPoints: [//array
 				        <?php
-				        	$count = 1;
 				        	$row = $statement->fetch(PDO::FETCH_ASSOC);
-				        	echo "{ x: new Date(" . $row['Date'] . "), y: " . $row['Hours_Sleep'] . "}";
+				        	
+				        	$date = explode("-", $row['Date']);
+				        	echo "{ x: new Date(" . $date[0] . ", " . $date[1] . ", " . $date[2] . "), y: " . $row['Hours_Sleep'] . "}";
 				        	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 				        	{
-					        	echo ",{ x: new Date(" . $row['Date'] . "), y: " . $row['Hours_Sleep'] . "}";			        		
+					        	$date = explode("-", $row['Date']);
+					        	echo ",{ x: new Date(" . $date[0] . ", " . $date[1] . ", " . $date[2] . "), y: " . $row['Hours_Sleep'] . "}";
 				        	}
 				        ?>
 				        ]
@@ -107,12 +109,14 @@
 				        dataPoints: [//array
 				        <?php
 				        	$statement->execute();
-				        	$count = 1;
 				        	$row = $statement->fetch(PDO::FETCH_ASSOC);
-				        	echo "{ x: new Date(" . $row['Date'] . "), y: " . $row['Hours_Cardio'] . "}";
+
+				        	$date = explode("-", $row['Date']);
+				        	echo "{ x: new Date(" . $date[0] . ", " . $date[1] . ", " . $date[2] . "), y: " . $row['Hours_Cardio'] . "}";
 				        	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 				        	{
-					        	echo ",{ x: new Date(" . $row['Date'] . "), y: " . $row['Hours_Cardio'] . "}";			        		
+					        	$date = explode("-", $row['Date']);
+					        	echo ",{ x: new Date(" . $date[0] . ", " . $date[1] . ", " . $date[2] . "), y: " . $row['Hours_Cardio'] . "}";
 				        	}
 				        ?>
 				        ]
@@ -129,8 +133,7 @@
 				    axisX:
 				    {
 				        title: "Date",
-				        valueFormatString: "MMM DD",
-				        gridThickness: 2
+				        valueFormatString: "MMM DD"
 				    },
 				    axisY: 
 				    {
@@ -147,10 +150,12 @@
 				        <?php
 			        		$statement->execute();
 				        	$row = $statement->fetch(PDO::FETCH_ASSOC);
-				        	echo "{ x: new Date(" . $row['Date'] . "), y: " . $row['Weight'] . "}";
+				        	$date = explode("-", $row['Date']);
+				        	echo "{ x: new Date(" . $date[0] . ", " . $date[1] . ", " . $date[2] . "), y: " . $row['Weight'] . "}";
 				        	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 				        	{
-					        	echo ",{ x: new Date(" . $row['Date'] . "), y: " . $row['Weight'] . "}";			        		
+					        	$date = explode("-", $row['Date']);
+					        	echo ",{ x: new Date(" . $date[0] . ", " . $date[1] . ", " . $date[2] . "), y: " . $row['Weight'] . "}";
 				        	}
 				        ?>
 				        ]
@@ -167,8 +172,7 @@
 				    axisX:
 				    {
 				        title: "Date",
-				        valueFormatString: "MMM DD",
-				        gridThickness: 2
+				        valueFormatString: "MMM DD"
 				    },
 				    axisY: 
 				    {
@@ -185,16 +189,25 @@
 				        <?php
 			        		$statement->execute();
 				        	$row = $statement->fetch(PDO::FETCH_ASSOC);
+				        	$count = 0;
+
 				        	if ($row['Calories'] != null)
 				        	{
-					        	echo "{ x: new Date(" . $row['Date'] . "), y: " . $row['Calories'] . "}";			        		
+					        	$date = explode("-", $row['Date']);
+					        	echo "{ x: new Date(" . $date[0] . ", " . $date[1] . ", " . $date[2] . "), y: " . $row['Calories'] . "}";			        		
 				        	}
 
 				        	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 				        	{
 					        	if ($row['Calories'] != null)
 					        	{
-						        	echo ",{ x: new Date(" . $row['Date'] . "), y: " . $row['Calories'] . "}";			        		
+						        	$date = explode("-", $row['Date']);
+						        	if ($count > 0)
+						        	{
+						        		echo ",";
+						        	}
+						        	$count++;
+						        	echo "{ x: new Date(" . $date[0] . ", " . $date[1] . ", " . $date[2] . "), y: " . $row['Calories'] . "}";			        		
 				        		}
 				        	}
 				        ?>
