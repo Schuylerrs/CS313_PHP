@@ -36,6 +36,9 @@
 
       return $db;
     }
+
+  require 'password.php';
+
   $db = loadDatabase();
 
   $fName = $_POST['fName'];
@@ -52,7 +55,7 @@
   $statement->bindParam(':lName', $lName);
   $statement->bindParam(':Email', $Email);
   $statement->bindParam(':Username', $Username);
-  $statement->bindParam(':Password', $Password);
+  $statement->bindParam(':Password', password_hash($Password, PASSWORD_DEFAULT));
 
   $statement->execute();
 

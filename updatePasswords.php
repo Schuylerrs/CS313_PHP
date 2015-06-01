@@ -1,20 +1,5 @@
 <?php
-	header('Content-Type: text/html; charset=UTF-8');
-	session_start();
-	if (session_status() == PHP_SESSION_NONE) 
-	{
-		session_name('sid');
-    session_start();
-    $_SESSION['FailedLogin'] = 0;
-    echo "new session <br/>";
-	}
-
-	$username = $_POST['Username'];
-	$password = $_POST['Password'];
-	echo $username . "<br/>";
-	echo $password . "<br/>";
-    
-  function loadDatabase()
+function loadDatabase()
   {
 
     $dbHost = "";
@@ -53,29 +38,14 @@
   }
 
     $db = loadDatabase();
+    $query = 'UPDATE users SET Password = ":Password" WHERE Username = ":Username"';
 
-    foreach ($db->query("SELECT * FROM users WHERE username='$username'") as $user)
+    $statement = $db->prepare($query);
+    $user['Username'] = "JohnDoe";
+    $user['Password'] = "Pass1234";
+
+    foreach ($db->query("SELECT * FROM users") as $user)
     {
-
-    	if (password_verify($password, $user['Password']))
-    	{
-    		echo "Password correct";
-    		$_SESSION["displayName"] = $user['First_Name'];
-    		$_SESSION["id"] = $user['id'];
-    		$_SESSION['FailedLogin'] = 0;
-    		header('Location: DailyHealth.php');
-    		exit();
-    	}
-    	else
-    	{
-    		$_SESSION['FailedLogin'] += 1;
-    		header('Location: ' . $_SERVER['HTTP_REFERER']);
-    		exit();
-    	}
+      echo $user['Username'] . " = " . password_hash($user['Password'], PASSWORD_DEFAULT) . "<br/>";
     }
-
-	$_SESSION['FailedLogin'] += 1;
-	echo "Failed Logins: " . $_SESSION['FailedLogin'];
-	header('Location: ' . $_SERVER['HTTP_REFERER']);
-	exit();
 ?>
