@@ -193,6 +193,7 @@
 
 				        	if ($row['Calories'] != null)
 				        	{
+				        		$count++;
 					        	$date = explode("-", $row['Date']);
 					        	echo "{ x: new Date(" . $date[0] . ", " . $date[1] . ", " . $date[2] . "), y: " . $row['Calories'] . "}";			        		
 				        	}
