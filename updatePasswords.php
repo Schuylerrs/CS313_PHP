@@ -38,13 +38,11 @@ function loadDatabase()
   }
 
     $db = loadDatabase();
-    $query = 'UPDATE users SET Password = ":Password" WHERE Username = ":Username"';
+    $query = 'SELECT * FROM users';
 
     $statement = $db->prepare($query);
-    $user['Username'] = "JohnDoe";
-    $user['Password'] = "Pass1234";
-
-    foreach ($db->query("SELECT * FROM users") as $user)
+    $statement->execute();
+    while ($user = $statement->fetch(PDO::FETCH_ASSOC))
     {
       echo $user['Username'] . " = " . password_hash($user['Password'], PASSWORD_DEFAULT) . "<br/>";
     }
