@@ -60,7 +60,7 @@
       echo "Query run <br/>";
     	if (password_verify($password, $user['Password']))
     	{
-    		echo "Password correct";
+    		echo "Password correct <br/>";
     		$_SESSION["displayName"] = $user['First_Name'];
     		$_SESSION["id"] = $user['id'];
     		$_SESSION['FailedLogin'] = 0;
@@ -69,7 +69,7 @@
     	}
     	else
     	{
-        echo "Failed Logins (Bad Password): " . $_SESSION['FailedLogin'];
+        echo "Failed Logins (Bad Password): " . $_SESSION['FailedLogin'] . " <br/>";
     		$_SESSION['FailedLogin'] += 1;
     		header('Location: ' . $_SERVER['HTTP_REFERER']);
     		exit();
