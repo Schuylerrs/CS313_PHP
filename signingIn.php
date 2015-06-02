@@ -51,6 +51,7 @@
 
     return $db;
   }
+    require 'password.php';
 
     $db = loadDatabase();
     echo "Database loaded <br/>";
