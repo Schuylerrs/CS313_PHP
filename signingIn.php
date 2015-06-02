@@ -53,10 +53,10 @@
   }
 
     $db = loadDatabase();
-
+    echo "Database loaded <br/>";
     foreach ($db->query("SELECT * FROM users WHERE username='$username'") as $user)
     {
-
+      echo "Query run <br/>";
     	if (password_verify($password, $user['Password']))
     	{
     		echo "Password correct";
