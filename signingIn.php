@@ -68,6 +68,7 @@
     	}
     	else
     	{
+        echo "Failed Logins (Bad Password): " . $_SESSION['FailedLogin'];
     		$_SESSION['FailedLogin'] += 1;
     		header('Location: ' . $_SERVER['HTTP_REFERER']);
     		exit();
@@ -75,7 +76,7 @@
     }
 
 	$_SESSION['FailedLogin'] += 1;
-	echo "Failed Logins: " . $_SESSION['FailedLogin'];
+	echo "Failed Logins (No user): " . $_SESSION['FailedLogin'];
 	header('Location: ' . $_SERVER['HTTP_REFERER']);
 	exit();
 ?>
