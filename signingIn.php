@@ -9,10 +9,10 @@
     echo "new session <br/>";
 	}
 
-	// $username = $_POST['Username'];
-	// $password = $_POST['Password'];
-	// echo $username . "<br/>";
-	// echo $password . "<br/>";
+	$username = $_POST['Username'];
+	$password = $_POST['Password'];
+	//echo $username . "<br/>";
+	//echo $password . "<br/>";
     
   function loadDatabase()
   {
