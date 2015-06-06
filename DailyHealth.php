@@ -484,7 +484,7 @@
   				<form action="AddDelegate.php" method="post"> 
 		  			<select name="Delegate">
 			  			<?php
-		  					$statement = $db->prepare('SELECT First_Name, Last_Name, id FROM users WHERE id != :id AND id NOT IN (SELECT Delegate_Id FROM Permission WHERE User_Id = :id);');
+		  					$statement = $db->prepare('SELECT First_Name, Last_Name, id FROM users WHERE id != :id AND id NOT IN (SELECT Delegate_Id FROM permission WHERE User_Id = :id);');
 							$statement->bindParam(':id', $_SESSION['id']);	
 							$statement->execute();
 
